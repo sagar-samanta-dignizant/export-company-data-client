@@ -5,7 +5,7 @@ import axios from "axios";
 
 const PdfViewer = ({ fileBase64, annotations, filename, onNextFile, path, customPath }) => {
   const viewer = useRef(null);
-  const serverApi = import.meta.env.REACT_APP_SERVER_API || "http://localhost:3001";
+  const serverApi = import.meta.env.REACT_APP_SERVER_API || "http://localhost:8080";
 
   useEffect(() => {
     const loadDocumentWithAnnotations = async (instance) => {
@@ -61,7 +61,7 @@ const PdfViewer = ({ fileBase64, annotations, filename, onNextFile, path, custom
 
   return (
     <div className="PdfViewer">
-      <div ref={viewer} style={{ height: "100px" }}></div>
+      <div ref={viewer} style={{ height: "200px" }}></div>
     </div>
   );
 };

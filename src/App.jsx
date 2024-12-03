@@ -20,13 +20,12 @@ const App = () => {
   const [filesData, setFilesData] = useState([]);
   const [currentFileIndex, setCurrentFileIndex] = useState(0);
 
-  const serverApi = import.meta.env.REACT_APP_SERVER_API || "http://localhost:3001";
+  const serverApi = import.meta.env.REACT_APP_SERVER_API || "http://localhost:8080";
 
   useEffect(() => {
     const socket = io(serverApi);
 
     socket.on("status", (data) => {
-      console.log("vvvv", data);
 
       setStatusMessage(data.message);
       if (data.message === "CSV generation completed!" || data.message === "Data fetching completed!") {
